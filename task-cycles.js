@@ -6,8 +6,12 @@
 // arrayOfMultiples(17, 6) ➞ [17, 34, 51, 68, 85, 102]
 
 // Your code:
-export const arrayOfMultiples = (num, length) => {
-    // ... write code ...
+const arrayOfMultiples = (num, length) => {
+  let res = [];
+  for (let i = 1; i <= length; i++) {
+    res.push(num * i);
+  }
+  return res;
 };
 
 // 2 =================================
@@ -19,8 +23,12 @@ export const arrayOfMultiples = (num, length) => {
 // changeDirection([1, 2]) ➞ [2, 1]
 
 // Your code:
-export const changeDirection = (array) => {
-// ... write code ...
+const changeDirection = (array) => {
+  let res = [];
+  for (let i = 0; i < array.length; i++) {
+    res[i] = array[array.length - 1 - i];
+  }
+  return res;
 };
 
 // 3 =================================
@@ -30,6 +38,26 @@ export const changeDirection = (array) => {
 // biggerArray([1,2,3], [2,3,4]) ➞ { array: [2,3,4], sum: 9 }
 
 // Your code:
-export const biggerArray = (array1, array2) => {
-// ... write code ...
+const biggerArray = (array1, array2) => {
+  let total1 = 0;
+  let total2 = 0;
+  array1.forEach((num) => {
+    total1 += num;
+  });
+  array2.forEach((num) => {
+    total2 += num;
+  });
+  return total1 > total2
+    ? { array: array1, sum: total1 }
+    : { array: array2, sum: total2 };
 };
+
+console.log(arrayOfMultiples(7, 5));
+console.log(changeDirection([0, 1, 2, 3]));
+console.log(changeDirection([]));
+console.log(changeDirection([1, 2]));
+
+let arr1 = biggerArray([1, 2, 3, 4, 5], [50, 50]);
+let arr2 = biggerArray([1, 2, 3], [2, 3, 4]);
+console.log("[" + arr1.array + "]:" + arr1.sum);
+console.log("[" + arr2.array + "]:" + arr2.sum);
